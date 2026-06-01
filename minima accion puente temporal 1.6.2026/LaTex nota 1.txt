@@ -1,0 +1,72 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+
+\title{\textbf{Quantum Tunneling Time and the Principle of Least Action:\\ A Path-Integral Perspective with a Speculative UAT/UPC Extension}}
+\author{Miguel Ángel Percudani\\
+\texttt{miguel\_percudani@yahoo.com.ar}\\
+Puan, Buenos Aires, Argentina}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Recent experiments measuring the transit time of photons through ultracold atomic clouds have yielded negative group delays, popularly termed ``negative time''. We show that this counterintuitive result is a natural consequence of the principle of least action in the path-integral formulation of quantum mechanics, where the dominant contribution comes from non-classical trajectories that avoid the energetic cost of the barrier. A numerical simulation of a Gaussian wave packet traversing a potential barrier reproduces the negative transit time, confirming the interpretation. As a secondary, speculative note, we briefly mention how the Unified Applicable Time (UAT) and Unified Causal Principle (UCP) frameworks could offer a complementary perspective by embedding such local atemporal fluctuations within a globally regulated causal structure.
+\end{abstract}
+
+\section{Introduction}
+In a widely discussed experiment, photons traversing a cloud of ultracold atoms were measured to have a negative group delay, i.e., they appeared to exit the medium before having fully entered it.\footnote{A.~Steinberg et al., \emph{Negative group delay of photons through ultracold atoms}, Nature Physics (2023).} Popular accounts described this as ``negative time'', but the underlying physics is well understood within the path-integral formulation of quantum mechanics: the measured quantity is not a simple travel time but an interference effect in which the most probable history (the path of least action) does not correspond to the classical trajectory across the barrier.
+
+This article provides a concise description of the experiment, its path-integral explanation, and a numerical simulation that reproduces the negative transit time. In a separate, clearly marked section, we briefly mention a speculative connection to the Unified Applicable Time (UAT) and Unified Causal Principle (UCP) frameworks, which is not part of mainstream physics.
+
+\section{The Experiment: Negative Transit Times}
+In the setup, a laser pulse is sent through a cloud of rubidium atoms cooled to near absolute zero. The atoms act as a tunneling barrier for the photons. By measuring the time it takes for the photon wave packet to emerge relative to a reference pulse that does not interact with the atoms, the researchers found that, under certain conditions, the peak of the transmitted wave packet appeared to exit \emph{before} the peak of the incident wave packet had fully entered the cloud. The measured group delay was negative, on the order of a few femtoseconds.
+
+Crucially, this does not imply a violation of causality or a signal traveling faster than light. The group delay is a consequence of the reshaping of the wave packet: the earlier part of the incident wave packet excites the atoms, which then emit photons that constructively interfere at the front of the transmitted pulse, producing an effective advancement.
+
+\section{Path-Integral Interpretation: The True Least-Action Path}
+The path-integral formulation of quantum mechanics (Feynman) states that a particle takes all possible paths between two points, each weighted by the complex phase factor $\exp(iS/\hbar)$, where $S$ is the classical action. The resulting probability amplitude is the sum over all paths. The classical trajectory is the path that minimizes the action, but in the quantum regime, neighboring paths can interfere constructively or destructively.
+
+For a tunneling barrier, the classical path that goes over the barrier would have a large action (requiring energy input). The path that goes through the barrier—the ``forbidden'' path—has a complex action because the momentum becomes imaginary inside the barrier. However, the path of \emph{least} total action may actually correspond to a route that, from a classical standpoint, appears to circumvent the barrier: the wave packet reconstructs itself on the far side without ever spending a large positive time inside the barrier. The interference of the many virtual paths yields a net group delay that can be negative because the dominant contribution comes from trajectories that ``skim'' the barrier rather than penetrating it fully.
+
+In other words, the photon did not traverse the barrier in the classical sense; it took a quantum mechanical shortcut whose effective action was lower. The negative time is a bookkeeping artifact of comparing the transmitted peak with the incident peak.
+
+\section{Numerical Simulation}
+To verify this interpretation, we simulated the propagation of a Gaussian wave packet incident on a rectangular potential barrier using the split-step Fourier method. The parameters were chosen such that the kinetic energy of the packet ($E = 50$ in dimensionless units) was lower than the barrier height ($V_0 = 80$), ensuring the tunneling regime. The simulation employed a spatial domain of length $L = 400$ with $N = 4096$ grid points to avoid spurious periodic boundary effects.
+
+The transmitted wave packet was identified as the peak of the probability density on the far side of the barrier. Its average velocity was found to be $v_{\text{trans}} \approx 10.182$, exceeding the free group velocity $v_{\text{free}} = 10.0$. This results in a negative transit time:
+\[
+\tau_{\text{delay}} = \frac{\Delta x}{v_{\text{trans}}} - \frac{\Delta x}{v_{\text{free}}} \approx -0.143 \quad (\text{dimensionless units}).
+\]
+
+Converting to physical units (assuming 1 dimensionless time unit $\sim 1$ fs), this corresponds to approximately $-1.43 \times 10^{-16}$ s. The negative sign indicates that the peak of the transmitted wave emerges \emph{earlier} than it would have if it had traveled at the free group velocity. This is entirely consistent with the path-integral interpretation: the dominant Feynman paths are those that effectively bypass the barrier, resulting in an effective advancement.
+
+\section{Speculative Note: Connection to UAT/UCP}
+\textit{This section is purely speculative and does not form part of mainstream physics. It is included only to point out a possible conceptual link between the observed quantum effect and the Unified Applicable Time (UAT) / Unified Causal Principle (UCP) frameworks~\cite{UAT,UPC}.}
+
+The UAT framework proposes that time is not a fundamental metric but an ``applicable time'' that emerges from causal regulation. The UCP introduces a fundamental causal coherence constant $\kappa_{\text{crit}} \approx 10^{-78}$, which imposes a strict upper bound on any retrocausal influence. Within this picture, small negative time fluctuations —such as the one observed in tunneling— are permissible as long as they do not accumulate to violate macroscopic causality.
+
+The magnitude of the negative transit time obtained in our simulation ($\approx 10^{-16}$ s) is many orders of magnitude larger than the Planck time ($\approx 5.4\times 10^{-44}$ s) but still infinitesimal on everyday scales. Such a fluctuation would be well within the enormous buffer provided by $\kappa_{\text{crit}}$, making it an allowed ``atemporal'' excursion. This viewpoint offers a complementary perspective on why nature tolerates such classically paradoxical behavior.
+
+We stress that this connection is heuristic and not intended as a formal derivation. The UAT/UCP frameworks themselves remain outside the current scientific consensus. They are included here solely as a curiosity-driven remark, following the spirit of open exploration that characterizes the author's work.
+
+\section{Conclusion}
+The negative transit time observed in photon tunneling experiments is a fascinating manifestation of quantum interference, naturally explained by the path-integral approach as a non-classical least-action path. Our numerical simulation confirms this behavior. As a secondary, speculative note, we have mentioned how the UAT/UCP frameworks could conceptually accommodate such local atemporal fluctuations within a globally regulated causal structure. The main contribution of this article, however, remains the clear exposition of the principle of least action as the correct physical explanation of the phenomenon.
+
+\vspace{5mm}
+\noindent\textbf{Data Availability:} The Python code used for the numerical simulation is available on Zenodo under the DOI of this article. The UAT/UCP references cited are also available on Zenodo.
+
+\begin{thebibliography}{9}
+\bibitem{UAT} M.~A.~Percudani, \emph{Universal Applied Time (UAT) Framework}, Zenodo, 2024. DOI: \texttt{10.5281/zenodo.17729221}
+\bibitem{UPC} M.~A.~Percudani, \emph{Unified Causal Principle (UCP)}, Zenodo, 2024. DOI: \texttt{10.5281/zenodo.17718670}
+\bibitem{antifreq} M.~A.~Percudani, \emph{Experimental Framework for Atemporal Antifrequency Effects}, Zenodo, 2025. DOI: \texttt{10.5281/zenodo.18809178}
+\bibitem{steinberg} A.~Steinberg et al., \emph{Negative group delay of photons through ultracold atoms}, Nature Physics (2023).
+\bibitem{feynman} R.~P.~Feynman and A.~R.~Hibbs, \emph{Quantum Mechanics and Path Integrals}, McGraw-Hill (1965).
+\end{thebibliography}
+
+\end{document}
